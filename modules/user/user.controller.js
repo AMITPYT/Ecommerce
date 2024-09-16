@@ -2,7 +2,7 @@ const User = require('../../models/user');
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = 'Amitisagoodb$oy'; // Consider using environment variables for secrets
 const bcrypt = require('bcryptjs');
-const sendEmail = require('../../utils/sendEmail');
+// const sendEmail = require('../../utils/sendEmail');
 
 const registerUser = async (req, res) => {
     try {
@@ -24,12 +24,6 @@ const registerUser = async (req, res) => {
                 }
             };
             const authtoken = jwt.sign(data, process.env.JWT_SECRET,{ expiresIn: '30d'});
-            await sendEmail(
-                user.email,
-                'Welcome to Our E-commerce Platform',
-                `Hello ${user.email}, welcome to our platform!`
-            );
-
 
             res.json({
                 msg: "Registration successful",

@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = 'Amitisagoodb$oy'; // Consider using environment variables for secrets
+
 
 const auth = async (req, res, next) => {
     const token = req.header('Authorization').replace('Bearer ', '');
